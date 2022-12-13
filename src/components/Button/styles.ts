@@ -1,6 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Link as LinkStyled } from "react-router-dom";
+
+const buttonVariant = {
+  buttonRegister: css`
+    width: 100%;
+  `
+}
 
 export const ButtonStyled = styled.button`
+
   height: 50px;
 
   display: flex;
@@ -22,7 +30,7 @@ export const ButtonStyled = styled.button`
   color: #ffffff;
 `;
 
-export const ButtonStyledLink = styled.button`
+export const ButtonStyledLink = styled(LinkStyled)`
   height: 50px;
 
   display: flex;
@@ -41,5 +49,6 @@ export const ButtonStyledLink = styled.button`
   font-weight: 600;
   font-size: 16px;
   line-height: 28px;
+  text-decoration: none;
   color: #999999;
 `;

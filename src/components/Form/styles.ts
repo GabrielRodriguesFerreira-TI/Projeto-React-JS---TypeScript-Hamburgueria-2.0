@@ -24,7 +24,20 @@ export const MainForm = styled.form`
     color: #999999;
     text-align: center;
   }
+
+  p {
+    color: red;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+  }
 `;
+
+export const DivTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
 
 export const Title = styled.h2`
   font-family: "Inter";

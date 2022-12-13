@@ -1,13 +1,13 @@
 import { ButtonStyled, ButtonStyledLink } from "./styles";
 import { iButton } from "./types";
 
-export const ButtonApp = ({ children, type }: iButton) => {
+export const ButtonApp = ({ children, type, to, variant }: iButton) => {
   return (
     <>
       {type === "submit" ? (
         <ButtonStyled>{children}</ButtonStyled>
       ) : (
-        <ButtonStyledLink>{children}</ButtonStyledLink>
+        <ButtonStyledLink to={to}>{children}</ButtonStyledLink>
       )}
     </>
   );

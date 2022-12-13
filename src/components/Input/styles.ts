@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 export const BoxInput = styled.div`
   width: 100%;
-  margin-bottom: 15px;
 
   display: flex;
   flex-direction: column;
@@ -57,6 +56,11 @@ export const CssTextField = withStyles({
   root: {
     backgroundColor: "#F5F5F5",
     borderRadius: 4,
+
+    "& input:valid + fieldset": {
+      borderColor: "green",
+      borderWidth: 2,
+    },
 
     "& label.Mui-focused": {
       color: "#999999",
