@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BoxInput, CssTextField } from "./styles";
 import { iInput } from "./types";
 
-export const InputApp = ({ children, type, }: iInput) => {
+export const InputApp = ({ children, type, register, errorInput }: iInput) => {
   const [showPassowrd, setShowPassword] = useState(false);
 
   return (
@@ -10,10 +10,13 @@ export const InputApp = ({ children, type, }: iInput) => {
       {type === "password" ? (
         <>
           <CssTextField
+            error={errorInput && true}
+            required={(errorInput && false) || (!errorInput && true)}
             type={showPassowrd ? "text" : "password"}
             id="outlined-basic"
             label={children}
             variant="outlined"
+            {...register}
           />
           <i
             onClick={() => setShowPassword(!showPassowrd)}
@@ -24,10 +27,13 @@ export const InputApp = ({ children, type, }: iInput) => {
         </>
       ) : (
         <CssTextField
+          error={errorInput && true}
+          required={(errorInput && false) || (!errorInput && true)}
           type={type}
-          id="outlined-basic"
+          id="outlined-basic-1"
           label={children}
           variant="outlined"
+          {...register}
         />
       )}
     </BoxInput>
