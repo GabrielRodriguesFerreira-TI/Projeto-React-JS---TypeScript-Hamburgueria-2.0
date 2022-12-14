@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
+import { CartContext } from "../../contexts/cartContext";
 import { UserContext } from "../../contexts/userContext";
 import { InputSearch } from "../inputSearch";
+import Badge from "@mui/material/Badge";
 import { LogoApp } from "../Logo";
 import {
   Container,
@@ -13,6 +15,8 @@ import {
 
 export const HeaderApp = () => {
   const { setUserState } = useContext(UserContext);
+  const { setIsModalOpen } = useContext(CartContext);
+
   const Navigate = useNavigate();
 
   const comeBack = () => {
@@ -27,7 +31,12 @@ export const HeaderApp = () => {
         <LogoApp />
         <DivSearch>
           <InputSearch />
-          <ShoppingCar className="fa-solid fa-cart-shopping" />
+          <Badge badgeContent={0} color="success">
+            <ShoppingCar
+              onClick={() => setIsModalOpen(true)}
+              className="fa-solid fa-cart-shopping"
+            />
+          </Badge>
           <ExitIcon
             onClick={comeBack}
             className="fa-solid fa-right-from-bracket"
