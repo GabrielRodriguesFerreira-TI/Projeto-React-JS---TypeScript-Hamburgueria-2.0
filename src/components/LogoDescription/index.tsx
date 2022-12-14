@@ -1,13 +1,11 @@
 import groupBolls from "../../assets/Group 135.svg";
-import { DivContent, DivDescription, DivTitle, FigureStyled } from "./styles";
+import { LogoApp } from "../Logo";
+import { DivContent, DivDescription, FigureStyled } from "./styles";
 
 export const LogoDescription = () => {
   return (
     <DivContent>
-      <DivTitle>
-        <h1>Burguer</h1>
-        <span>Kenzie</span>
-      </DivTitle>
+      <LogoApp />
       <DivDescription>
         <i className="fa-solid fa-shopping-bag"></i>
         <p>

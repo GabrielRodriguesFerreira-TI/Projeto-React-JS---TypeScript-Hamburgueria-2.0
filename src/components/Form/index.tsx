@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import { LoginSchema, RegisterSchema } from "./formSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DivTitle, MainForm, Title } from "./styles";
-import { iForm, iUser } from "./types";
+import { iForm } from "./types";
 import { InputApp } from "../Input";
 import { ButtonApp } from "../Button";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { DivCenter, Ring, SpanLoading } from "./stylesLoading";
+import { iUserForm } from "../../contexts/@types/types";
 
 export const FormApp = ({ typeForm }: iForm) => {
   const { loading, loginSubmit, registerSubmit } = useContext(UserContext);
@@ -16,7 +17,7 @@ export const FormApp = ({ typeForm }: iForm) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<iUser>({
+  } = useForm<iUserForm>({
     mode: "onBlur",
     resolver: yupResolver(typeForm === true ? LoginSchema : RegisterSchema),
   });
@@ -44,13 +45,13 @@ export const FormApp = ({ typeForm }: iForm) => {
                 Senha
               </InputApp>
               {errors.password?.message && <p>{errors.password.message}</p>}
-              <ButtonApp to="/register" type="submit">
+              <ButtonApp variant="buttonLogin" to="/register" type="submit">
                 Login
               </ButtonApp>
               <span>
                 Crie sua conta para saborear muitas delícias e matar sua fome!
               </span>
-              <ButtonApp to="/register">Cadastrar</ButtonApp>
+              <ButtonApp variant="linkLogin" to="/register">Cadastrar</ButtonApp>
             </>
           ) : (
             <DivCenter>
@@ -65,7 +66,7 @@ export const FormApp = ({ typeForm }: iForm) => {
             <>
               <DivTitle>
                 <Title>Cadastro</Title>
-                <ButtonApp to="/login">Retornar para o login</ButtonApp>
+                <ButtonApp variant="linkRegister" to="/login">Retornar para o login</ButtonApp>
               </DivTitle>
               <InputApp
                 errorInput={errors.name?.message}
