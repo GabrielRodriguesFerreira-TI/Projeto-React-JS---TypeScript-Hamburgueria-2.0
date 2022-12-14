@@ -1,13 +1,30 @@
 import styled, { css } from "styled-components";
 import { Link as LinkStyled } from "react-router-dom";
+import { iProps } from "./types";
 
-const buttonVariant = {
-  buttonRegister: css`
-    width: 100%;
-  `
-}
-
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<iProps>`
+  ${({ typeButton }) => {
+    switch (typeButton) {
+      case "buttonRegister":
+        return css`
+          background: #219653;
+          border: 1px solid #219653;
+          color: #ffffff;
+        `;
+      case "buttonLogin":
+        return css`
+          background: #219653;
+          border: 1px solid #219653;
+          color: #ffffff;
+        `;
+      case "buttonList":
+        return css`
+          background: #bdbdbd;
+          border: 2px solid #bdbdbd;
+          color: #ffffff;
+        `;
+    }
+  }}
 
   height: 50px;
 
@@ -18,8 +35,6 @@ export const ButtonStyled = styled.button`
   padding: 0px 40px;
   gap: 10px;
 
-  background: #219653;
-  border: 1px solid #219653;
   border-radius: 8px;
 
   font-family: "Inter", sans-serif;
@@ -27,28 +42,43 @@ export const ButtonStyled = styled.button`
   font-weight: 600;
   font-size: 16px;
   line-height: 28px;
-  color: #ffffff;
+  transition: 0.3s ease-in-out;
 `;
 
-export const ButtonStyledLink = styled(LinkStyled)`
-  height: 50px;
+export const ButtonStyledLink = styled(LinkStyled)<iProps>`
+  ${({ typelink }) => {
+    switch (typelink) {
+      case "linkLogin":
+        return css`
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 40px;
-  gap: 10px;
+          height: 50px;
+          padding: 0px 40px;
+          gap: 10px;
 
-  background: #f5f5f5;
-  border: 1px solid #f5f5f5;
-  border-radius: 8px;
+          background: #f5f5f5;
+          border: 1px solid #f5f5f5;
+          border-radius: 8px;
+
+          font-size: 16px;
+          line-height: 28px;
+        `;
+      case "linkRegister":
+        return css`
+          background: transparent;
+          border: 1px solid transparent;
+          border-bottom: 2px solid #828282;
+        `;
+    }
+  }}
 
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 28px;
   text-decoration: none;
-  color: #999999;
+  color: #828282;
 `;

@@ -1,14 +1,9 @@
 export interface iCounterContextProps {
   children: React.ReactNode;
 }
-
-export interface iLogin {
+export interface iUserForm {
   email: string;
   password: string;
-}
-
-export interface iRegister {
-  email: string;
-  password: string;
-  name: string;
+  name?: string;
+  confirmPassword?: string;
 }
