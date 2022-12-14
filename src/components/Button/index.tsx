@@ -5,9 +5,9 @@ export const ButtonApp = ({ children, type, to, variant }: iButton) => {
   return (
     <>
       {type === "submit" ? (
-        <ButtonStyled>{children}</ButtonStyled>
+        <ButtonStyled typeButton={variant}>{children}</ButtonStyled>
       ) : (
-        <ButtonStyledLink to={to}>{children}</ButtonStyledLink>
+        <ButtonStyledLink typelink={variant} to={to}>{children}</ButtonStyledLink>
       )}
     </>
   );
