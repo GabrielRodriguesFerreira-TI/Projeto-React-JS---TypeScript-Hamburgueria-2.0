@@ -1,6 +1,11 @@
 import { iCounterContextProps } from "./@types/types";
+import { CartProviders } from "./cartContext";
 import { UserProvider } from "./userContext";
 
 export const Providers = ({ children }: iCounterContextProps) => {
-  return <UserProvider>{children}</UserProvider>;
+  return (
+    <CartProviders>
+      <UserProvider>{children}</UserProvider>
+    </CartProviders>
+  );
 };
