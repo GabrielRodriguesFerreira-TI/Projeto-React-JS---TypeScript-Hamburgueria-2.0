@@ -1,29 +1,38 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cartContext";
 import { ButtonApp } from "../Button";
 import { DivDescription, FigureLi, LiStyled } from "./styles";
 import { iTypesProducts } from "./types";
 
-export const Products = ({
-  id,
-  name,
-  category,
-  price,
-  img,
-}: iTypesProducts) => {
+export const Products = ({ element }: iTypesProducts) => {
+  const { addProcuToCart } = useContext(CartContext);
+
+  const objItems = {
+    id: element.id,
+    name: `${element.name}`,
+    category: `${element.category}`,
+    price: element.price,
+    img: `${element.img}`,
+    counter: 1,
+  };
+
   return (
-    <LiStyled position={id}>
-      <FigureLi categoryimg={category}>
-        <img title="products" src={img} />
+    <LiStyled position={objItems.id}>
+      <FigureLi categoryimg={objItems.category}>
+        <img title="products" src={objItems.img} />
       </FigureLi>
       <DivDescription>
-        <h2>{name}</h2>
-        <p>{category}</p>
+        <h2>{objItems.name}</h2>
+        <p>{objItems.category}</p>
         <span>
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
-          }).format(price)}
+          }).format(Number(objItems.price))}
         </span>
-        <ButtonApp variant="buttonList" type="submit" to="">Adicionar</ButtonApp>
+        <ButtonApp onClickProps={() => {addProcuToCart(objItems)}} variant="buttonList" type="submit" to="">
+          Adicionar
+        </ButtonApp>
       </DivDescription>
     </LiStyled>
   );
