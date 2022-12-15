@@ -2,16 +2,15 @@ import React from "react";
 import { iUserForm } from "../@types/types";
 import { SubmitHandler } from "react-hook-form/dist/types";
 
-
 interface iUserLogin {
-    email?: string;
-    id?: number;
-    name?: string;
+  email?: string;
+  id?: number;
+  name?: string;
 }
 
 export interface iLoginObject {
-    accessToken?: string;
-    user?: iUserLogin
+  accessToken?: string;
+  user?: iUserLogin;
 }
 
 export interface iProductsList {
@@ -20,6 +19,7 @@ export interface iProductsList {
   category: string;
   price: number;
   img: string;
+  counter?: number;
 }
 
 export interface iUserContext {
@@ -31,6 +31,9 @@ export interface iUserContext {
   loginSubmit: SubmitHandler<iUserForm>;
   registerSubmit: SubmitHandler<iUserForm>;
   products: iProductsList[];
+  setProducts: React.Dispatch<React.SetStateAction<iProductsList[]>>;
+  showProducts: iProductsList[];
+  setShowProducts: React.Dispatch<React.SetStateAction<iProductsList[]>>;
 }
 
 export interface iDefaultErrorResponse {

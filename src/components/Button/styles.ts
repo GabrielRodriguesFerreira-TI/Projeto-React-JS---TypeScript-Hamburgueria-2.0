@@ -10,18 +10,33 @@ export const ButtonStyled = styled.button<iProps>`
           background: #219653;
           border: 1px solid #219653;
           color: #ffffff;
+          padding: 0px 40px;
         `;
       case "buttonLogin":
         return css`
           background: #219653;
           border: 1px solid #219653;
           color: #ffffff;
+          padding: 0px 40px;
         `;
       case "buttonList":
         return css`
           background: #bdbdbd;
           border: 2px solid #bdbdbd;
           color: #ffffff;
+          padding: 0px 40px;
+        `;
+      case "buttonRemoveModal":
+        return css`
+          background: #e0e0e0;
+          border: 2px solid #e0e0e0;
+          color: #828282;
+          padding: 0px 40px;
+        `;
+      case "buttonClearSearch":
+        return css`
+          background: transparent;
+          border: 1px solid transparent;
         `;
     }
   }}
@@ -32,7 +47,6 @@ export const ButtonStyled = styled.button<iProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 40px;
   gap: 10px;
 
   border-radius: 8px;

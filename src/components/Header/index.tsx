@@ -15,7 +15,7 @@ import {
 
 export const HeaderApp = () => {
   const { setUserState } = useContext(UserContext);
-  const { setIsModalOpen } = useContext(CartContext);
+  const { productsCart, setIsModalOpen } = useContext(CartContext);
 
   const Navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export const HeaderApp = () => {
         <LogoApp />
         <DivSearch>
           <InputSearch />
-          <Badge badgeContent={0} color="success">
+          <Badge badgeContent={productsCart.length} color="success">
             <ShoppingCar
               onClick={() => setIsModalOpen(true)}
               className="fa-solid fa-cart-shopping"

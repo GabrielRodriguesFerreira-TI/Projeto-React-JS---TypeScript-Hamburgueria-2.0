@@ -1,9 +1,5 @@
 export interface iTypesProducts {
-    id: number;
-    name: string;
-    category: string;
-    price: number;
-    img: string;
+    element: any;
 }
 
 export interface iCategory{
@@ -11,5 +7,5 @@ export interface iCategory{
 }
 
 export interface iPosition{
-    position: number;
+    position: any;
 }

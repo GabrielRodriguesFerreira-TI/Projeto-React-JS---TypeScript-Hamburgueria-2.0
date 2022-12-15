@@ -72,9 +72,10 @@ export const ModalContent = styled.div`
       color: #ffffff;
     }
   }
+`;
 
-  div {
-    width: 100%;
+export const DivDescription = styled.div`
+      width: 100%;
     height: 150px;
 
     display: flex;
@@ -102,5 +103,19 @@ export const ModalContent = styled.div`
       text-align: center
       color: #828282;
     }
-  }
+`;
+
+export const DivPadding = styled.div`
+  padding: 0px 10px 0px 10px;
+`;
+
+export const UlMain = styled.ul`
+  max-height: 450px;
+
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  border-bottom: 2px solid #e0e0e0;
 `;
