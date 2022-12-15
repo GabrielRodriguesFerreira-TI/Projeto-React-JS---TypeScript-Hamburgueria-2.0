@@ -20,12 +20,12 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
   const [userState, setUserState] = useState({} as iLoginObject);
   const [techLoading, setTechLoading] = useState(false);
   const [products, setProducts] = useState<iProductsList[]>([]);
+  const [showProducts, setShowProducts] = useState<iProductsList[]>([])
 
   const Navigate = useNavigate();
 
   const getProducts = async () => {
     const token = localStorage?.getItem("@Token");
-    console.log(products);
     try {
       setTechLoading(true);
       setLoading(true);
@@ -33,12 +33,18 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(response.data);
+      setShowProducts(response.data)
     } catch (error) {
       window.localStorage.clear();
       const currentError = error as AxiosError<iDefaultErrorResponse>;
       if (currentError.message === "timeout of 3000ms exceeded") {
         Navigate("/login");
-        toast.error("Tempo limite atingido", {
+        toast.error("Faça o login novamente!", {
+          autoClose: 2500,
+        });
+      } else if (currentError.message) {
+        Navigate("/login");
+        toast.error("Faça o login novamente!", {
           autoClose: 2500,
         });
       }
@@ -121,7 +127,10 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
         loginSubmit,
         registerSubmit,
         products,
+        setProducts,
         techLoading,
+        showProducts,
+        setShowProducts
       }}
     >
       {children}

@@ -1,26 +1,36 @@
 import { useContext } from "react";
+import { CartContext } from "../../contexts/cartContext";
 import { UserContext } from "../../contexts/userContext";
+import { ButtonApp } from "../Button";
 import { Products } from "../Products";
-import { Ulmain } from "./styles";
+import { DivProducts, TitleSearch, Ulmain } from "./styles";
 
 export const ProductsList = () => {
-  const { products } = useContext(UserContext);
+  const { products, setProducts, showProducts } = useContext(UserContext);
+  const { setSearchValue, searchValue } = useContext(CartContext);
 
-  console.log(products);
+  const searchClear = () => {
+    setProducts(showProducts);
+    setSearchValue("");
+  };
+
   return (
-    <Ulmain>
-      {products.map((element, index) => {
-        return (
-          <Products
-            img={element.img}
-            price={element.price}
-            id={element.id}
-            name={element.name}
-            category={element.category}
-            key={index}
-          />
-        );
-      })}
-    </Ulmain>
+    <>
+      <DivProducts>
+        {searchValue?.length !== 0 && (
+          <div>
+            <TitleSearch>
+              Resultados para: <span> {searchValue} </span>
+            </TitleSearch>
+            <ButtonApp variant="buttonClearSearch" onClickProps={() => searchClear()} type="submit" to="">Limpar busca</ButtonApp>
+          </div>
+        )}
+        <Ulmain>
+          {products.map((element, index) => {
+            return <Products element={element} key={index} />;
+          })}
+        </Ulmain>
+      </DivProducts>
+    </>
   );
 };

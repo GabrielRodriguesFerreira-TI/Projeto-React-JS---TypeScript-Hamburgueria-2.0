@@ -10,7 +10,7 @@ export const InputApp = ({ children, type, register, errorInput }: iInput) => {
       {type === "password" ? (
         <>
           <CssTextField
-            error={errorInput && true}
+            error={errorInput ? true : false}
             required={(errorInput && false) || (!errorInput && true)}
             type={showPassowrd ? "text" : "password"}
             id="outlined-basic"
@@ -27,7 +27,7 @@ export const InputApp = ({ children, type, register, errorInput }: iInput) => {
         </>
       ) : (
         <CssTextField
-          error={errorInput && true}
+          error={errorInput ? true : false}
           required={(errorInput && false) || (!errorInput && true)}
           type={type}
           id="outlined-basic-1"

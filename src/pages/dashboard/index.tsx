@@ -15,8 +15,6 @@ export const DashboardPage = () => {
     return;
   }
 
-  console.log(products)
-
   return (
     <>
 
