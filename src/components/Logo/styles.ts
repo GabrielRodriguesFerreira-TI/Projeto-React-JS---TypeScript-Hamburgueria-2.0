@@ -54,4 +54,16 @@ export const DivTitle = styled.div`
       transform: translateX(0);
     }
   }
+
+  @media (max-width: 400px) {
+    width: 30%;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    span {
+      font-size: 18px;
+    }
+  }
 `;

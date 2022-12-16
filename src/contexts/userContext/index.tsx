@@ -27,11 +27,11 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
   const getProducts = async () => {
     const token = localStorage?.getItem("@Token");
     try {
-      setTechLoading(true);
-      setLoading(true);
       const response = await client.get("products", {
         headers: { Authorization: `Bearer ${token}` },
       });
+      setTechLoading(true);
+      setLoading(true);
       setProducts(response.data);
       setShowProducts(response.data)
     } catch (error) {

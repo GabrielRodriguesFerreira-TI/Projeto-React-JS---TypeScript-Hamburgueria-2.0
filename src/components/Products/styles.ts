@@ -5,7 +5,7 @@ export const LiStyled = styled.li<iPosition>`
   border: 2px solid #e0e0e0;
   border-radius: 6px;
   min-width: 280px;
-  height: 360px;
+  height: 95%;
   max-height: 346px;
   transition: 0.3s ease-in-out;
   -webkit-filter: brightness(85%);
