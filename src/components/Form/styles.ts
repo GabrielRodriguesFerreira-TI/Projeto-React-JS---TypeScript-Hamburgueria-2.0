@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainForm = styled.form`
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   padding: 15px 35px;
 
@@ -14,6 +14,10 @@ export const MainForm = styled.form`
   border: 2px solid #f5f5f5;
   box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+
+  @media (max-width: 510px) {
+    padding: 15px 10px;
+  }
 
   span {
     font-family: "Inter", sans-serif;

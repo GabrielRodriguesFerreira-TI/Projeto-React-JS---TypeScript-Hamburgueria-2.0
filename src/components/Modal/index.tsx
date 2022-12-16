@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { CartContext } from "../../contexts/cartContext";
+import { useOutClick } from "../../hooks/outClick";
 import { CartApp } from "../Cart";
 import { TotalCartApp } from "../Cart/TotalCart";
 import {
@@ -12,10 +13,13 @@ import {
 
 export const ModalApp = () => {
   const { setIsModalOpen, productsCart } = useContext(CartContext);
+  const modalRef = useOutClick(
+    () => setIsModalOpen(false)
+  )
 
   return (
     <DivWrapper>
-      <ModalContent>
+      <ModalContent ref={modalRef}>
         <header>
           <h2>Carrinho de compras</h2>
           <i onClick={() => setIsModalOpen(false)}>X</i>

@@ -12,7 +12,7 @@ export const DashboardPage = () => {
   const { isModalOpen } = useContext(CartContext);
 
   if (loading) {
-    return;
+    return null;
   }
 
   return (

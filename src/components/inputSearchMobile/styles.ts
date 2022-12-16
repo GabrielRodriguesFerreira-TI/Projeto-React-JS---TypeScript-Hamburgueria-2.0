@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const FormInput = styled.form`
-  width: 100%;
-  max-width: 325px;
+  width: 97%;
 
   display: flex;
   padding: 5px;
@@ -14,10 +13,6 @@ export const FormInput = styled.form`
 
   :hover {
     border: 2px solid #333333;
-  }
-
-  @media (max-width: 650px) {
-    display: none;
   }
 `;
 

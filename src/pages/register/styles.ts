@@ -7,10 +7,26 @@ export const Container = styled.div`
 
 export const MainDiv = styled.div`
   width: 98%;
-  margin: 200px 10px;
+  margin: 200px 0px;
 
   display: flex;
   justify-content: center;
   gap: 80px;
-`;
 
+  @media (max-width: 810px) {
+    margin: 100px 0px;
+  }
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+
+    @media (max-width: 810px) {
+      flex-direction: column;
+    }
+  }
+`;
