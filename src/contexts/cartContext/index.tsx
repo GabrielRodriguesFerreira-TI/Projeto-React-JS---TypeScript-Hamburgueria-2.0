@@ -6,8 +6,9 @@ export const CartContext = createContext({} as iCartContext);
 
 export const CartProviders = ({ children }: iCounterContextProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [productsCart, setProductsCart] = useState<iProductsList[]>([]);
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState("");
 
   const addProcuToCart = (objItems: iProductsList) => {
     const copyProductsCart = [...productsCart];
@@ -60,6 +61,8 @@ export const CartProviders = ({ children }: iCounterContextProps) => {
         removeProducToCart,
         searchValue,
         setSearchValue,
+        isSearchOpen,
+        setIsSearchOpen,
       }}
     >
       {children}

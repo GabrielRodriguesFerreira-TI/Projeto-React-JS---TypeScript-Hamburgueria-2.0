@@ -92,4 +92,8 @@ export const DivDescription = styled.div`
   }
 `;
 
-export const FigureStyled = styled.figure``;
+export const FigureStyled = styled.figure`
+  @media(max-width: 810px) {
+    display: none;
+  }
+`;

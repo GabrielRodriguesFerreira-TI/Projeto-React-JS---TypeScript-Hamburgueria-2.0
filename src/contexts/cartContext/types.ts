@@ -10,7 +10,9 @@ export interface iProductsList {
 
 export interface iCartContext {
   isModalOpen: boolean;
+  isSearchOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setIsSearchOpen: Dispatch<SetStateAction<boolean>>;
   setProductsCart: React.Dispatch<React.SetStateAction<iProductsList[]>>;
   productsCart: iProductsList[];
   addProcuToCart:(objItems: iProductsList) => void;

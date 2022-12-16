@@ -18,12 +18,12 @@ export const ProductsList = () => {
     <>
       <DivProducts>
         {searchValue?.length !== 0 && (
-          <div>
+          <header>
             <TitleSearch>
               Resultados para: <span> {searchValue} </span>
             </TitleSearch>
             <ButtonApp variant="buttonClearSearch" onClickProps={() => searchClear()} type="submit" to="">Limpar busca</ButtonApp>
-          </div>
+          </header>
         )}
         <Ulmain>
           {products.map((element, index) => {

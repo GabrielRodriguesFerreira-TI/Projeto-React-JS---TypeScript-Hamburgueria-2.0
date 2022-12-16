@@ -7,15 +7,21 @@ import Badge from "@mui/material/Badge";
 import { LogoApp } from "../Logo";
 import {
   Container,
+  DivInputSearch,
   DivSearch,
   ExitIcon,
   HeaderStyled,
+  SearchIcon,
   ShoppingCar,
 } from "./styles";
+import { InputMobile } from "../inputSearchMobile";
+import { useOutClick } from "../../hooks/outClick";
 
 export const HeaderApp = () => {
   const { setUserState } = useContext(UserContext);
-  const { productsCart, setIsModalOpen } = useContext(CartContext);
+  const { productsCart, setIsModalOpen, setIsSearchOpen, isSearchOpen } =
+    useContext(CartContext);
+  const modalRef = useOutClick(() => setIsSearchOpen(false));
 
   const Navigate = useNavigate();
 
@@ -28,9 +34,18 @@ export const HeaderApp = () => {
   return (
     <HeaderStyled>
       <Container>
+        {isSearchOpen === true && (
+          <DivInputSearch ref={modalRef}>
+            <InputMobile />
+          </DivInputSearch>
+        )}
         <LogoApp />
         <DivSearch>
           <InputSearch />
+          <SearchIcon
+            onClick={() => setIsSearchOpen(true)}
+            className="fa-solid fa-search"
+          />
           <Badge badgeContent={productsCart.length} color="success">
             <ShoppingCar
               onClick={() => setIsModalOpen(true)}

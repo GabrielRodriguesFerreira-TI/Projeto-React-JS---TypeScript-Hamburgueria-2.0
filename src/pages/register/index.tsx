@@ -6,8 +6,10 @@ export const RegisterPage = () => {
   return (
     <Container>
       <MainDiv>
-       <LogoDescription />
-        <FormApp typeForm={false}/>
+        <div>
+          <LogoDescription />
+          <FormApp typeForm={false} />
+        </div>
       </MainDiv>
     </Container>
   );
