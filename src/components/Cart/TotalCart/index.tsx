@@ -14,7 +14,6 @@ export const TotalCartApp = () => {
     setProductsCart([])
   }
 
-  console.log(result)
   return (
     <DivTotal>
       <div>

@@ -20,7 +20,6 @@ export const CartProviders = ({ children }: iCounterContextProps) => {
     } else {
       item.counter = item.counter + 1;
     }
-    console.log(copyProductsCart);
     setProductsCart(copyProductsCart);
   };
 
