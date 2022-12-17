@@ -80,18 +80,22 @@ export const DivDescription = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 10px;
 
     background: #F2F2F2;
   }
 
 
   > div div span:nth-child(1) {
-    margin-top: -5px;
-
+    width: 30px;
+    height: 33px;
 
     font-weight: 200;
     font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     color: red;
 
     cursor: pointer;
@@ -109,7 +113,13 @@ export const DivDescription = styled.div`
   }
 
   > div div span:nth-child(3) {
-    margin-top: -2px;
+    width: 30px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-size: 22px;
     font-weight: 900;
     color: red;

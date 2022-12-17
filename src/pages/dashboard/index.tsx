@@ -8,7 +8,7 @@ import { Container, MainDiv } from "./styles";
 import { DivCenter, Ring, SpanLoading } from "./stylesLoading";
 
 export const DashboardPage = () => {
-  const { products, loading } = useContext(UserContext);
+  const { loading, showProducts } = useContext(UserContext);
   const { isModalOpen } = useContext(CartContext);
 
   if (loading) {
@@ -23,7 +23,7 @@ export const DashboardPage = () => {
       <HeaderApp />
       <Container>
         <MainDiv>
-          {products.length > 0 ? (
+          {showProducts.length > 0 ? (
             <ProductsList />
           ) : (
             <DivCenter>

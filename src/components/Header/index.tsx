@@ -52,10 +52,12 @@ export const HeaderApp = () => {
               className="fa-solid fa-cart-shopping"
             />
           </Badge>
-          <ExitIcon
-            onClick={comeBack}
-            className="fa-solid fa-right-from-bracket"
-          />
+          <button title="buttonExit">
+            <ExitIcon
+              onClick={comeBack}
+              className="fa-solid fa-right-from-bracket"
+            />
+          </button>
         </DivSearch>
       </Container>
     </HeaderStyled>

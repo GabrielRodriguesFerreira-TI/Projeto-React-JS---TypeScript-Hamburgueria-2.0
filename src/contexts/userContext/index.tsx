@@ -20,7 +20,7 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
   const [userState, setUserState] = useState({} as iLoginObject);
   const [techLoading, setTechLoading] = useState(false);
   const [products, setProducts] = useState<iProductsList[]>([]);
-  const [showProducts, setShowProducts] = useState<iProductsList[]>([])
+  const [showProducts, setShowProducts] = useState<iProductsList[]>([]);
 
   const Navigate = useNavigate();
 
@@ -33,7 +33,7 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
       setTechLoading(true);
       setLoading(true);
       setProducts(response.data);
-      setShowProducts(response.data)
+      setShowProducts(response.data);
     } catch (error) {
       window.localStorage.clear();
       const currentError = error as AxiosError<iDefaultErrorResponse>;
@@ -48,7 +48,6 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
           autoClose: 2500,
         });
       }
-      console.error(error);
     } finally {
       setTechLoading(false);
       setLoading(false);
@@ -81,8 +80,7 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
       getProductsFunction();
       Navigate("/dashboard");
     } catch (error) {
-      const currentError = error as AxiosError<iDefaultErrorResponse>;
-      toast.error(`${currentError.response?.data}`, {
+      toast.error(`${"Usuário não encontrado!"}`, {
         autoClose: 2500,
       });
     } finally {
@@ -104,9 +102,12 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
 
       Navigate("/login");
     } catch (error) {
-      toast.error("Ops! algo deu errado", {
-        autoClose: 3500,
-      });
+      const currentError = error as AxiosError<iDefaultErrorResponse>;
+      if (currentError.response?.data) {
+        toast.error("Esse email já está cadastrado!", {
+          autoClose: 3500,
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -130,7 +131,7 @@ export const UserProvider = ({ children }: iCounterContextProps) => {
         setProducts,
         techLoading,
         showProducts,
-        setShowProducts
+        setShowProducts,
       }}
     >
       {children}

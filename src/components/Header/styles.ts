@@ -66,6 +66,12 @@ export const DivSearch = styled.div`
     width: 35%;
     justify-content: center;
   }
+
+  > Button {
+    background: transparent;
+    border: none;
+    cursor: unset;
+  }
 `;
 
 export const ShoppingCar = styled.i`
